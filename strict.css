@@ -1,0 +1,182 @@
+/* СТРОГИЙ ДОКУМЕНТ — слой поверх styles.css. Удалите ссылку на этот файл в index.html, и вернётся прежний вид. */
+:root{
+  --r:2px; --rs:2px;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+
+/* ---------- убираем «шаблонные» эффекты ---------- */
+.sv,.cell,.pkg,.rv-c,.sc,.calc .cc-f{transform:none!important}
+.sv::after,.cell::after,.pkg::after,.rv-c::after,.sc::after{display:none}
+.sv:hover,.pkg:hover,.pkg.feat,.pkg.feat:hover{transform:none!important;box-shadow:none}
+.hero{background:var(--bg)}
+.float{backdrop-filter:none;box-shadow:none;background:var(--card);animation:none}
+.f1,.f2{animation:none}
+.btn.fill,.btn.fill:hover{box-shadow:none}
+.btn{text-transform:uppercase;letter-spacing:.07em;font-size:12.5px;font-weight:700;padding:15px 26px}
+.btn.sm{padding:11px 18px;font-size:11.5px}
+.sc.open{box-shadow:none}
+
+/* ---------- острые углы вместо «пилюль» и кружков ---------- */
+.pt,.pkg .badge,.smp,.chips button,.rv-dots i,.rv-dots i.on,.rv-b,.qa .pm,.sc .pm,.pn,.sc-b li::before,
+.chatbtn i,.cw header .av,.cw header .x,.done .ck,.job .card::before,.m,.m.typing i{border-radius:0}
+.cw{border-radius:3px}
+.job .card::before{transform:rotate(45deg);width:10px;height:10px}
+.m{border-radius:2px}
+::-webkit-scrollbar-thumb{border-radius:0}
+
+/* ---------- типографика: служебные подписи моноширинным ---------- */
+.eyebrow,.job .yr small,.pkg .tag,.sv .term,.stats span,.track,.lab,.pt,.smp,.sc-w,.job .pl,.hours,.ci small,.ft h4,.cp{font-family:var(--mono);letter-spacing:.1em}
+.eyebrow{font-size:12px;font-weight:500}
+.eyebrow::before{width:24px}
+.track{font-size:11.5px;font-weight:500}
+.track span::after{content:"§";font-size:12px;font-family:var(--disp)}
+.stats span{font-size:12px;text-transform:uppercase}
+h1{letter-spacing:-.025em}
+h1 em{font-style:italic}
+
+/* ---------- заголовки разделов — «Статья N» на левом поле ---------- */
+section.s{padding:110px 0}
+.sh{grid-template-columns:minmax(120px,190px) 1fr;gap:12px 40px;align-items:start;border-top:2px solid var(--ink);padding-top:22px;margin-bottom:60px}
+.sh::before,.sh::after{display:none}
+.sh .no{transform:none!important;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5;color:var(--acc);font-weight:500;opacity:1;padding-top:.7em}
+.sh .no::before{content:"Статья ";color:var(--mut)}
+.sh h2{font-size:clamp(34px,4.2vw,58px);max-width:22ch}
+.sh p{grid-column:2}
+.side .eyebrow,#contacts .eyebrow{margin-bottom:18px}
+
+/* ---------- шапка дела (бланк) ---------- */
+.casehd{display:flex;flex-wrap:wrap;gap:6px 28px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);padding:10px 0;margin-bottom:46px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.casehd b{font-weight:500;color:var(--ink)}
+.casehd span:last-child{margin-left:auto}
+
+/* ---------- печать ---------- */
+.portrait{overflow:visible}
+.seal{position:absolute;right:-30px;bottom:-34px;width:150px;height:150px;color:var(--acc);transform:rotate(-14deg);pointer-events:none;z-index:3;mix-blend-mode:multiply;animation:sealin 1s 1.3s cubic-bezier(.3,1.6,.5,1) both}
+:root[data-theme="dark"] .seal{mix-blend-mode:normal;opacity:.92}
+.seal text{font-family:var(--mono);font-size:10.2px;letter-spacing:.2em;fill:currentColor;text-transform:uppercase}
+.seal .c{font-family:var(--disp);font-size:44px;letter-spacing:0;text-anchor:middle;font-weight:600}
+.seal circle{fill:none;stroke:currentColor}
+@keyframes sealin{from{opacity:0;transform:rotate(-30deg) scale(1.9)}60%{opacity:1}to{transform:rotate(-14deg) scale(1)}}
+.f1{left:-30px;bottom:150px}
+.f2{right:auto;left:24px;top:-22px}
+
+/* ---------- подпись, которая прорисовывается ---------- */
+.sig{display:block;width:190px;height:56px;margin-top:22px;overflow:visible}
+.sig path{fill:none;stroke:#E7A9B8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.5,0,.2,1)}
+.sig path+path{transition-delay:1.7s;transition-duration:.9s}
+.sig.go path{stroke-dashoffset:0}
+.sig-cap{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-top:4px;display:block}
+
+/* ---------- прайс — реестр ---------- */
+.pills{display:flex;gap:6px 30px;padding:0;border:0;border-bottom:1px solid var(--line);background:none;border-radius:0;margin-bottom:0}
+.pills .ind{top:auto;bottom:-1px;height:2px;background:var(--acc);border-radius:0}
+.pills button{padding:14px 0;border-radius:0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.pills button.on{color:var(--ink)}
+.pills button:hover{color:var(--ink)}
+.cards{display:block;counter-reset:sv;margin-top:0}
+.sv{display:grid;grid-template-columns:64px minmax(0,1fr) 150px 150px 100px;gap:2px 24px;align-items:center;padding:24px 14px 24px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;counter-increment:sv;position:relative;transition:background .25s,padding .25s}
+.sv::before{content:"п. " counter(sv);grid-column:1;grid-row:1/3;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mut);padding-left:14px;transition:color .25s}
+.sv::after{display:block!important;content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--acc);inset:auto;opacity:0;transform:scaleY(0);transform-origin:center;transition:.3s;mix-blend-mode:normal;background:var(--acc);pointer-events:none;border-radius:0;left:0;top:0;bottom:0;height:auto}
+.sv:hover{background:var(--glow);border-color:var(--line)}
+.sv:hover::after{opacity:1;transform:scaleY(1)}
+.sv:hover::before{color:var(--acc)}
+.sv h3{grid-column:2;grid-row:1;font-size:26px}
+.sv p{grid-column:2;grid-row:2;flex:none;max-width:62ch}
+.sv .meta{display:contents}
+.sv .term{grid-column:3;grid-row:1/3;font-size:11.5px;text-transform:uppercase;align-self:center}
+.sv .price{grid-column:4;grid-row:1/3;text-align:right;font-size:26px;white-space:nowrap}
+.sv .ask{grid-column:5;grid-row:1/3;justify-self:end;margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--acc);padding-bottom:2px;align-self:center}
+.sv .ask::after{content:"→"}
+.note{font-family:var(--mono);font-size:12px;letter-spacing:.02em}
+
+/* пакеты */
+.pk{margin-top:72px;gap:0;border:1px solid var(--ink)}
+.pkg{border:0;border-radius:0;background:var(--card);padding:36px 30px}
+.pkg+.pkg{border-left:1px solid var(--ink)}
+.pkg.feat{background:var(--dk);border-color:var(--dk)}
+.pkg h3{font-size:34px}
+.pkg .badge{border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+
+/* карточки: тонкая рамка, без теней */
+.cell,.job .card,.rv-c,.sc,.quiz,.calc,.glass,.frame,.float{border-radius:var(--r)}
+.c-quote::before{border-radius:0;inset:8px}
+.job .card,.cell,.rv-c,.sc,.quiz,.calc{border-color:var(--line)}
+.cell:hover,.rv-c:hover,.sc:hover{border-color:var(--ink)}
+.c-text p:first-of-type::first-letter{font-weight:500}
+.ring{border-radius:0;opacity:.55}
+
+/* ---------- боковая навигация: «Стр. 3 / 9» ---------- */
+.rail{right:18px;gap:0;align-items:flex-end}
+.rail .pg{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut);writing-mode:vertical-rl;margin-bottom:14px}
+.rail .pg b{color:var(--acc);font-weight:500}
+.rail a{width:14px;height:1px;border:0;background:var(--mut);border-radius:0;margin:7px 0;transition:width .3s,background .3s,transform .3s}
+.rail a::after{content:"";position:absolute;inset:-7px 0}
+.rail a.on{width:34px;background:var(--acc);transform:none}
+
+/* ---------- штамп «ПРИНЯТО» вместо конфетти ---------- */
+.glass{position:relative}
+.stamp{position:absolute;right:26px;top:26px;z-index:5;pointer-events:none;color:#E7A9B8;border:3px double currentColor;padding:8px 16px 6px;text-align:center;font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;transform:rotate(-9deg);animation:stampin .55s cubic-bezier(.3,1.7,.5,1) both,stampout .6s 5s forwards}
+.stamp b{display:block;font-size:20px;font-weight:600;letter-spacing:.24em}
+.stamp small{display:block;font-size:10.5px;letter-spacing:.14em;opacity:.85}
+@keyframes stampin{from{opacity:0;transform:rotate(-9deg) scale(2.4)}to{opacity:.95;transform:rotate(-9deg) scale(1)}}
+@keyframes stampout{to{opacity:0}}
+.glass.thud{animation:thud .35s}
+@keyframes thud{30%{transform:translateY(3px)}60%{transform:translateY(-1px)}}
+.done .ck2,.done .ck{border-radius:0}
+
+/* ---------- чат и мелочи ---------- */
+.chatbtn{text-transform:none}
+.hint{border-radius:var(--r)}
+.fld input,.fld textarea{border-radius:var(--r)}
+.toast{border-radius:var(--r)}
+
+/* ---------- ответ квиза как «Определение» ---------- */
+.qres .lab::before{content:"Определение · "}
+.quiz{border-color:var(--ink)}
+
+@media (max-width:980px){
+  .sh{grid-template-columns:1fr;gap:8px}
+  .sh p{grid-column:1}
+  .sh .no{padding-top:0}
+  .sv{grid-template-columns:44px minmax(0,1fr);gap:6px 14px;padding:20px 0}
+  .sv::before{grid-row:1}
+  .sv h3,.sv p,.sv .term,.sv .price,.sv .ask{grid-column:2;grid-row:auto;text-align:left;justify-self:start}
+  .pkg+.pkg{border-left:0;border-top:1px solid var(--ink)}
+  .rail{display:none}
+  .seal{width:112px;height:112px;right:-8px;bottom:-24px}
+  .casehd span:last-child{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){.seal,.stamp{animation:none}.sig path{transition:none;stroke-dashoffset:0}}
+@media print{.seal,.casehd{display:none}}
+
+/* шапка: ничего не наезжает друг на друга */
+.logo{flex:none;white-space:nowrap}
+.mainnav{gap:22px}
+@media (max-width:1560px){.hours{display:none}}
+
+/* ---------- пометки на полях ---------- */
+.mn{grid-column:1;grid-row:2;align-self:start;margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--mut);border-left:2px solid var(--acc);padding:2px 0 2px 12px;max-width:190px}
+.mn b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);font-weight:500;margin-bottom:3px}
+.mn::before{content:none}
+@media (max-width:980px){.mn{grid-column:1;grid-row:auto;max-width:none;margin-top:12px}}
+
+/* ---------- вымарки ---------- */
+.rd{position:relative;display:inline-block;cursor:pointer;color:transparent;background:var(--ink);padding:0 4px;transition:color .35s,background .35s;user-select:none;outline-offset:3px}
+.rd:hover,.rd:focus-visible,.rd.open{color:var(--bg);background:transparent;color:var(--mut);user-select:text}
+.rv-c figcaption span.rd{font-size:13px}
+
+/* ---------- «Определение» ---------- */
+.qres .det{font-size:14.5px;margin:6px 0 0;line-height:1.5}
+.qres .det b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-right:6px}
+.qres h4{margin-top:4px}
+.rv-c figcaption span.rd{color:transparent}
+.rv-c figcaption span.rd:hover,.rv-c figcaption span.rd:focus-visible,.rv-c figcaption span.rd.open{color:var(--mut);background:transparent}
+.rv-nav[hidden]{display:none}
+:root[data-theme="dark"] .rd{background:#3a3e4a}
+:root[data-theme="dark"] .rd:hover,:root[data-theme="dark"] .rd:focus-visible,:root[data-theme="dark"] .rd.open{background:transparent}
+
+/* смена темы: без стандартного «мигания» перекрёстного затухания */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+.no-tr,.no-tr *,.no-tr *::before,.no-tr *::after{transition:none!important}

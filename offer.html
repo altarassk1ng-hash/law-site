@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Публичная оферта</title>
+<meta name="robots" content="noindex">
+<link rel="preload" href="fonts/Manrope-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="scrolled"><div class="wrap bar"><a href="index.html" class="logo"><i data-b="initial"></i><span data-b="short"></span></a><a class="btn ghost sm" style="margin-left:auto" href="index.html">На главную</a></div></header>
+<main class="doc"><div class="wrap"><div class="in">
+<a class="back" href="index.html">← Вернуться на сайт</a>
+<h1>Публичная оферта</h1>
+<div class="warn">Шаблон документа. Перед запуском сайта его должен проверить юрист: текст обязан соответствовать вашей реальной обработке данных (152-ФЗ). Реквизиты подставляются из файла content.js.</div>
+<p>Дата: [дата].</p>
+<p>Оператор персональных данных: <b data-b="full"></b>, статус: <span data-b="status"></span>, ИНН <span data-b="inn"></span>. Контакты: <span data-b="phone"></span>, <span data-b="email"></span>.</p>
+<h2>1. Предмет</h2>
+<p>Исполнитель оказывает юридические услуги, перечень и ориентировочная стоимость которых размещены на сайте. Настоящий документ является публичным предложением (офертой) заключить договор на оказание услуг.</p>
+<h2>2. Порядок заключения</h2>
+<p>Договор заключается после согласования задачи и стоимости, фиксации их в письменном виде (в том числе в электронной форме) и внесения оплаты или аванса.</p>
+<h2>3. Стоимость и оплата</h2>
+<p>Цены на сайте указаны «от» и носят справочный характер. Итоговая стоимость определяется в договоре до начала работы. Возможна поэтапная оплата.</p>
+<h2>4. Права и обязанности</h2>
+<ul><li>Исполнитель действует добросовестно и в интересах заказчика, сохраняет конфиденциальность сведений.</li><li>Заказчик предоставляет полные и достоверные документы и сведения.</li><li>Исполнитель не гарантирует конкретного результата судебного разбирательства, так как он зависит от решения суда.</li></ul>
+<h2>5. Ответственность и споры</h2>
+<p>Стороны разрешают споры путём переговоров, а при недостижении согласия — в суде по закону.</p>
+<h2>6. Реквизиты</h2>
+<p><span data-b="full"></span>, ИНН <span data-b="inn"></span>, <span data-b="status"></span>.</p>
+</div></div></main>
+<script src="content.js"></script>
+<script>
+(function(){var P=SITE.person;document.querySelectorAll('[data-b]').forEach(function(e){if(P[e.dataset.b]!=null)e.textContent=P[e.dataset.b]});})();
+</script>
+</body>
+</html>
