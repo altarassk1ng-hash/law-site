@@ -180,3 +180,7 @@ section.s{padding:110px 0}
 ::view-transition-old(root){z-index:1}
 ::view-transition-new(root){z-index:2}
 .no-tr,.no-tr *,.no-tr *::before,.no-tr *::after{transition:none!important}
+
+/* правки заказчика: подзаголовок раздела крупнее (≈21 px), пустые строки не занимают место */
+.sh p{font-size:clamp(19px,1.7vw,22px);line-height:1.5;max-width:56ch}
+.job .pl:empty,.job ul:empty{display:none}

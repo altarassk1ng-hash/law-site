@@ -8,6 +8,9 @@
   const now = new Date(), p2 = n => String(n).padStart(2, '0');
   const dateRu = now.getDate() + ' ' + MON[now.getMonth()] + ' ' + now.getFullYear() + ' г.';
 
+  /* стаж в плашке на портрете берётся из данных */
+  const f1 = $('.f1 b'); if (f1) { f1.dataset.n = new Date().getFullYear() - P.since; f1.dataset.s = ''; }
+
   /* шапка дела над первым экраном */
   const grid = $('.hero .grid');
   if (grid) {
